@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowing Wash | Premium Mobile Detailing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #000; color: #fff; overflow-x: hidden; }
+        
+        /* Navbar Dinámica */
+        #main-nav { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .nav-transparent { background: transparent; padding-top: 1.5rem; padding-bottom: 1.5rem; }
+        .nav-scrolled { background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); padding-top: 1rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        
+        /* Menú Lateral Mobile */
+        #mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: #000;
+            z-index: 100;
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #mobile-menu.active { right: 0; }
+
+        .burger-line { width: 28px; height: 2px; background-color: white; margin: 6px 0; transition: 0.3s; }
+        
+        .service-card { transition: transform 0.4s ease, border-color 0.4s ease; }
+        .service-card:hover { transform: translateY(-10px); border-color: #3b82f6; }
+
+        .fade-in { animation: fadeIn 1.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <nav id="main-nav" class="fixed w-full z-50 nav-transparent px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-extrabold tracking-tighter italic">
+                FLOWING<span class="text-blue-500">WASH</span>
+            </div>
+            
+            <div id="desktop-links" class="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.3em] text-gray-200">
+                <a href="#home" class="hover:text-blue-500 transition">Home</a>
+                <a href="#services" class="hover:text-blue-500 transition">Services</a>
+                <a href="#about" class="hover:text-blue-500 transition">About</a>
+                <a href="#contact" class="hover:text-blue-500 transition">Contact</a>
+            </div>
+
+            <div id="burger-btn" class="flex md:hidden flex-col cursor-pointer p-2">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="mobile-menu">
+        <button id="close-menu" class="absolute top-8 right-8 text-white text-4xl">&times;</button>
+        <div class="flex flex-col space-y-10 text-center">
+            <a href="#home" class="m-link text-5xl font-black italic tracking-tighter">HOME</a>
+            <a href="#services" class="m-link text-5xl font-black italic tracking-tighter">SERVICES</a>
+            <a href="#about" class="m-link text-5xl font-black italic tracking-tighter">ABOUT</a>
+            <a href="#contact" class="m-link text-5xl font-black italic tracking-tighter text-blue-500">CONTACT</a>
+        </div>
+    </div>
+
+    <section id="home" class="relative h-screen flex items-center justify-center">
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?q=80&w=2000" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black"></div>
+        </div>
+        <div class="relative z-10 text-center px-6 fade-in max-w-4xl">
+            <h1 class="text-6xl md:text-[110px] font-black italic leading-[0.9] tracking-tighter mb-6">PRIME SHINE</h1>
+            <p class="text-blue-500 font-bold tracking-[0.5em] uppercase text-xs mb-8">Mobile Detailing Puebla</p>
+            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
+                Luxury car care without leaving your home. Our mobile unit is fully equipped with water, power, and premium tech.
+            </p>
+            <a href="#services" class="inline-block px-10 py-5 bg-white text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-blue-600 hover:text-white transition-all duration-300">
+                Explore Services
+            </a>
+        </div>
+    </section>
+
+    <section id="services" class="py-32 px-6 bg-black">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-blue-500 font-bold text-xs uppercase tracking-[0.4em] mb-4 text-center md:text-left">Our Menu</h2>
+            <h3 class="text-5xl font-black italic mb-16 uppercase text-center md:text-left">Premium Services</h3>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card p-10 bg-neutral-900/50 border border-white/5 rounded-3xl">
+                    <div class="text-blue-500 font-black text-2xl mb-4">01 ELITE</div>
+                    <p class="text-gray-400 leading-relaxed mb-8">Detail Full exterior foam wash, wheel cleaning, and premium hand wax protection.</p>
+                    <div class="text-3xl font-bold mb-6 text-white">$150.00+</div>
+                    <button class="w-full py-4 border border-white/20 rounded-xl font-bold hover:bg-white hover:text-black transition uppercase tracking-widest text-xs">Reserve</button>
+                </div>
+                <div class="service-card p-10 bg-neutral-900/50 border border-white/5 rounded-3xl">
+                    <div class="text-blue-500 font-black text-2xl mb-4">02 INTERIOR REVIVE</div>
+                    <p class="text-gray-400 leading-relaxed mb-8">Deep steam cleaning, leather conditioning, and total odor elimination.</p>
+                    <div class="text-3xl font-bold mb-6 text-white">$200.00+</div>
+                    <button class="w-full py-4 border border-white/20 rounded-xl font-bold hover:bg-white hover:text-black transition uppercase tracking-widest text-xs">Reserve</button>
+                </div>
+                <div class="service-card p-10 bg-neutral-900/50 border border-white/5 rounded-3xl">
+                    <div class="text-blue-500 font-black text-2xl mb-4">03 CERAMIC COATING</div>
+                    <p class="text-gray-400 leading-relaxed mb-8">Advanced hydrophobic protection that lasts for years. Ultimate gloss.</p>
+                    <div class="text-3xl font-bold mb-6 text-white">$450.00+</div>
+                    <button class="w-full py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-500 transition uppercase tracking-widest text-xs">Reserve</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-32 px-6 bg-neutral-950">
+        <div class="max-w-5xl mx-auto text-center">
+            <h3 class="text-4xl md:text-6xl font-black italic mb-10 uppercase">We Bring The <span class="text-blue-500">Clean To You</span></h3>
+            <p class="text-gray-400 text-xl leading-relaxed mb-12">
+                Why waste 3 hours at a shop? We specialize in <strong>At-Home & Office detailing</strong>. Our mobile van is 100% self-sufficient—we bring our own deionized water and electricity to ensure a perfect, spot-free finish anywhere in <strong>Puebla</strong>.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="text-[10px] font-black tracking-widest text-blue-400 border border-blue-400/20 py-4 rounded-full">✓ HOME SERVICE</div>
+                <div class="text-[10px] font-black tracking-widest text-blue-400 border border-blue-400/20 py-4 rounded-full">✓ OFFICE VISITS</div>
+                <div class="text-[10px] font-black tracking-widest text-blue-400 border border-blue-400/20 py-4 rounded-full">✓ WEEKEND SLOTS</div>
+                <div class="text-[10px] font-black tracking-widest text-blue-400 border border-blue-400/20 py-4 rounded-full">✓ 5-STAR QUALITY</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 px-6 bg-black">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-blue-500 font-bold text-xs uppercase tracking-[0.4em] mb-6">Connect</h2>
+            <h3 class="text-5xl md:text-7xl font-black italic mb-8 uppercase leading-none tracking-tighter">
+                Ready to transform <br> <span class="text-white">your ride?</span>
+            </h3>
+            <p class="text-gray-400 text-lg mb-12">
+                Leave your email below and we will contact you within 24 hours.
+            </p>
+
+            <div class="max-w-md mx-auto mb-20">
+                <input type="email" placeholder="your@email.com" class="w-full bg-neutral-900 border border-white/10 rounded-2xl px-6 py-5 text-white focus:outline-none focus:border-blue-500 transition-all text-center mb-4">
+                <button class="w-full py-4 bg-white text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-blue-600 hover:text-white transition-all duration-300">Keep me updated</button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-white/5 pt-16">
+                <a href="https://www.google.com/maps/search/Puebla" target="_blank" class="group flex flex-col items-center">
+                    <div class="mb-4 text-blue-500 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <span class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-500 mb-1">Location</span>
+                    <span class="text-sm font-bold group-hover:text-blue-400 transition">PUEBLA, MEXICO</span>
+                </a>
+                <a href="https://wa.me/522223304056" target="_blank" class="group flex flex-col items-center">
+                    <div class="mb-4 text-green-500 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    </div>
+                    <span class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-500 mb-1">WhatsApp</span>
+                    <span class="text-sm font-bold group-hover:text-green-400 transition">2223304056</span>
+                </a>
+                <a href="#" class="group flex flex-col items-center">
+                    <div class="mb-4 text-pink-500 group-hover:scale-110 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    </div>
+                    <span class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-500 mb-1">Instagram</span>
+                    <span class="text-sm font-bold group-hover:text-pink-400 transition">Follow Us</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center text-[10px] text-gray-700 font-bold uppercase tracking-[0.5em] bg-black">
+        © 2026 Flowing Wash Mobile | Premium Detailing Puebla
+    </footer>
+
+    <script>
+        const nav = document.getElementById('main-nav');
+        const burgerBtn = document.getElementById('burger-btn');
+        const desktopLinks = document.getElementById('desktop-links');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenu = document.getElementById('close-menu');
+        const mLinks = document.querySelectorAll('.m-link');
+
+        window.onscroll = () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('nav-scrolled');
+                nav.classList.remove('nav-transparent');
+                desktopLinks.classList.add('md:hidden'); // Oculta palabras en scroll PC si prefieres barra limpia
+                burgerBtn.classList.remove('md:hidden'); // Muestra barras en PC al hacer scroll
+            } else {
+                nav.classList.add('nav-transparent');
+                nav.classList.remove('nav-scrolled');
+                desktopLinks.classList.remove('md:hidden');
+                burgerBtn.classList.add('md:hidden');
+            }
+        };
+
+        const toggleMenu = () => {
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+        };
+
+        burgerBtn.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        mLinks.forEach(link => link.addEventListener('click', toggleMenu));
+    </script>
+</body>
+</html>
